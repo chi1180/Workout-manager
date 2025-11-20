@@ -321,7 +321,6 @@ export default function History() {
                 </div>
                 <span>More</span>
               </div>
-</system_warning>
             </div>
           </div>
         </div>
