@@ -1,0 +1,32 @@
+{
+  "name": "workout-manager",
+  "version": "1.0.0",
+  "description": "健康的な運動習慣を継続するためのWebアプリケーション",
+  "scripts": {
+    "dev": "cd app && npm run dev",
+    "build": "cd app && npm run build",
+    "preview": "cd app && npm run preview",
+    "install:all": "cd app && npm install",
+    "clean": "cd app && rm -rf dist node_modules",
+    "deploy": "cd app && npm run build && echo 'Build complete! Deploy the dist/index.html file to your hosting service.'"
+  },
+  "keywords": [
+    "workout",
+    "fitness",
+    "health",
+    "training",
+    "exercise",
+    "react",
+    "tailwind"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/workout-manager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/workout-manager/issues"
+  },
+  "homepage": "https://github.com/yourusername/workout-manager#readme"
+}
