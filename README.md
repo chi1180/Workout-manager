@@ -4,6 +4,7 @@
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
+![Deploy](https://github.com/yourusername/workout-manager/actions/workflows/deploy.yml/badge.svg)
 
 ## ✨ 特徴
 
@@ -76,6 +77,22 @@ npm run build
 2. Source を「GitHub Actions」に設定
 3. `main` ブランチにプッシュすると自動的にデプロイされます
 
+### トラブルシューティング
+
+**キャッシュエラーが発生する場合:**
+
+ワークフローファイル (`.github/workflows/deploy.yml`) が正しく設定されていることを確認してください：
+
+```yaml
+- name: Cache node modules
+  uses: actions/cache@v3
+  with:
+    path: app/node_modules
+    key: ${{ runner.os }}-node-${{ hashFiles('app/package-lock.json') }}
+```
+
+詳細は [DEPLOYMENT.md](DEPLOYMENT.md) を参照してください。
+
 または、手動でデプロイ:
 
 ```bash
@@ -83,14 +100,18 @@ cd app
 npm run build
 
 # distディレクトリの内容をgh-pagesブランチにデプロイ
+npm install -g gh-pages
+gh-pages -d dist
 ```
 
 ## 📱 画面構成
 
 ### 1. オンボーディング (`/#/onboarding`)
+
 初回利用時に表示される質問フロー。ユーザーの運動習慣、目標、利用可能な時間などを収集し、パーソナライズされたトレーニングプランを生成します。
 
 ### 2. ダッシュボード (`/#/dashboard`)
+
 - 今日のトレーニングメニュー
 - 進捗状況の表示
 - ストリークカウンター
@@ -98,11 +119,13 @@ npm run build
 - エクササイズのチェックリスト
 
 ### 3. 履歴 (`/#/history`)
+
 - GitHubスタイルの年間アクティビティヒートマップ
 - 統計情報（総日数、現在のストリーク、最長記録）
 - 月別の詳細記録
 
 ### 4. 設定 (`/#/settings`)
+
 - プロファイルの確認と再設定
 - ダークモード切り替え
 - データのエクスポート/インポート
@@ -242,6 +265,11 @@ npm run test:e2e
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+## 📚 ドキュメント
+
+- [QUICKSTART.md](QUICKSTART.md) - クイックスタートガイド
+- [DEPLOYMENT.md](DEPLOYMENT.md) - 詳細なデプロイメントガイド
+
 ## 📄 ライセンス
 
 このプロジェクトはMITライセンスの下で公開されています。詳細は [LICENSE](LICENSE) ファイルを参照してください。
@@ -249,6 +277,7 @@ npm run test:e2e
 ## 👤 作成者
 
 あなたの名前
+
 - GitHub: [@yourusername](https://github.com/yourusername)
 
 ## 🙏 謝辞
