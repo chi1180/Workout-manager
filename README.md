@@ -1,87 +1,87 @@
-# ワークアウトマネージャー 💪
+# Workout Manager 💪
 
-健康的な運動習慣を継続するための、モダンなWebアプリケーションです。
+A modern web application to help you maintain a healthy exercise routine.
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Deploy](https://github.com/yourusername/workout-manager/actions/workflows/deploy.yml/badge.svg)
 
-## ✨ 特徴
+## ✨ Features
 
-- 🎯 **パーソナライズされたトレーニングプラン**: あなたの運動習慣、目標、利用可能な時間に基づいてカスタマイズ
-- 📊 **進捗トラッキング**: GitHubスタイルのヒートマップで年間の活動を視覚化
-- 🔥 **ストリーク管理**: 連続記録を追跡してモチベーションを維持
-- 🌙 **ダークモード対応**: 目に優しいダークテーマ
-- 📱 **レスポンシブデザイン**: モバイルファーストで設計
-- 💾 **オフライン対応**: IndexedDBとlocalStorageでデータを永続化
-- 🎉 **楽しいアニメーション**: 達成時のセレブレーションで継続をサポート
-- 📦 **単一HTMLファイル**: GitHub Pagesで簡単にホスト可能
+- 🎯 **Personalized Training Plans**: Customized based on your exercise habits, goals, and available time.
+- 📊 **Progress Tracking**: Visualize your annual activity with a GitHub-style heatmap.
+- 🔥 **Streak Management**: Keep your motivation high by tracking consecutive days.
+- 🌙 **Dark Mode Support**: Eye-friendly dark theme.
+- 📱 **Responsive Design**: Designed with a mobile-first approach.
+- 💾 **Offline Support**: Data persistence with IndexedDB and localStorage.
+- 🎉 **Fun Animations**: Celebrations on completion to support your journey.
+- 📦 **Single HTML File**: Easily hostable on GitHub Pages.
 
-## 🚀 デモ
+## 🚀 Demo
 
-[ライブデモを見る](#) (GitHub Pagesにデプロイ後にリンクを追加)
+[View Live Demo](#) (Add link after deploying to GitHub Pages)
 
-## 🛠️ 技術スタック
+## 🛠️ Tech Stack
 
-- **フレームワーク**: React 19 (関数コンポーネント + Hooks)
-- **ビルドツール**: Vite 7
-- **スタイリング**: Tailwind CSS 3
-- **アイコン**: Lucide React
-- **ルーティング**: カスタムハッシュルーター
-- **データストレージ**:
-  - LocalStorage (ユーザー設定)
-  - IndexedDB (アクティビティ履歴)
+- **Framework**: React 19 (Functional Components + Hooks)
+- **Build Tool**: Vite 7
+- **Styling**: Tailwind CSS 3
+- **Icons**: Lucide React
+- **Routing**: Custom Hash Router
+- **Data Storage**:
+  - LocalStorage (User Settings)
+  - IndexedDB (Activity History)
 
-## 📦 インストール
+## 📦 Installation
 
-### 必要要件
+### Prerequisites
 
-- Node.js 18以上
-- npm または yarn
+- Node.js 18 or higher
+- npm or yarn
 
-### セットアップ
+### Setup
 
 ```bash
-# リポジトリをクローン
+# Clone the repository
 git clone https://github.com/yourusername/workout-manager.git
 cd workout-manager
 
-# 依存関係をインストール
+# Install dependencies
 cd app
 npm install
 
-# 開発サーバーを起動
+# Start the development server
 npm run dev
 ```
 
-開発サーバーは `http://localhost:5173` で起動します。
+The development server will start at `http://localhost:5173`.
 
-## 🏗️ ビルド
+## 🏗️ Build
 
 ```bash
-# プロダクションビルド
+# Production build
 cd app
 npm run build
 ```
 
-ビルド後、`dist/index.html` が単一HTMLファイルとして生成されます。
-このファイルをそのままWebサーバーにデプロイできます。
+After the build, `dist/index.html` will be generated as a single HTML file.
+You can deploy this file directly to a web server.
 
-## 🌐 GitHub Pagesへのデプロイ
+## 🌐 GitHub Pages Deployment
 
-このプロジェクトにはGitHub Actions用の自動デプロイワークフローが含まれています。
+This project includes an automatic deployment workflow for GitHub Actions.
 
-### セットアップ手順
+### Setup Instructions
 
-1. GitHubリポジトリの設定で「Pages」に移動
-2. Source を「GitHub Actions」に設定
-3. `main` ブランチにプッシュすると自動的にデプロイされます
+1. Go to "Pages" in your GitHub repository settings.
+2. Set the source to "GitHub Actions".
+3. Pushing to the `main` branch will trigger automatic deployment.
 
-### トラブルシューティング
+### Troubleshooting
 
-**キャッシュエラーが発生する場合:**
+**If you encounter cache errors:**
 
-ワークフローファイル (`.github/workflows/deploy.yml`) が正しく設定されていることを確認してください：
+Make sure your workflow file (`.github/workflows/deploy.yml`) is configured correctly:
 
 ```yaml
 - name: Cache node modules
@@ -91,64 +91,64 @@ npm run build
     key: ${{ runner.os }}-node-${{ hashFiles('app/package-lock.json') }}
 ```
 
-詳細は [DEPLOYMENT.md](DEPLOYMENT.md) を参照してください。
+For more details, see [DEPLOYMENT.md](DEPLOYMENT.md).
 
-または、手動でデプロイ:
+Or, deploy manually:
 
 ```bash
 cd app
 npm run build
 
-# distディレクトリの内容をgh-pagesブランチにデプロイ
+# Deploy the contents of the dist directory to the gh-pages branch
 npm install -g gh-pages
 gh-pages -d dist
 ```
 
-## 📱 画面構成
+## 📱 Screens
 
-### 1. オンボーディング (`/#/onboarding`)
+### 1. Onboarding (`/#/onboarding`)
 
-初回利用時に表示される質問フロー。ユーザーの運動習慣、目標、利用可能な時間などを収集し、パーソナライズされたトレーニングプランを生成します。
+A question flow displayed on first use. It collects user's exercise habits, goals, available time, etc., to generate a personalized training plan.
 
-### 2. ダッシュボード (`/#/dashboard`)
+### 2. Dashboard (`/#/dashboard`)
 
-- 今日のトレーニングメニュー
-- 進捗状況の表示
-- ストリークカウンター
-- 週間進捗バー
-- エクササイズのチェックリスト
+- Today's training menu
+- Progress display
+- Streak counter
+- Weekly progress bar
+- Exercise checklist
 
-### 3. 履歴 (`/#/history`)
+### 3. History (`/#/history`)
 
-- GitHubスタイルの年間アクティビティヒートマップ
-- 統計情報（総日数、現在のストリーク、最長記録）
-- 月別の詳細記録
+- GitHub-style annual activity heatmap
+- Statistics (total days, current streak, longest streak)
+- Detailed monthly records
 
-### 4. 設定 (`/#/settings`)
+### 4. Settings (`/#/settings`)
 
-- プロファイルの確認と再設定
-- ダークモード切り替え
-- データのエクスポート/インポート
-- データリセット
+- Profile review and reset
+- Dark mode toggle
+- Data export/import
+- Data reset
 
-## 💾 データ構造
+## 💾 Data Structure
 
 ### LocalStorage
 
 ```javascript
 {
   workout_user_profile: {
-    q1: "none",           // 運動習慣レベル
-    q2: "health",         // トレーニング目的
-    q3: "10-20",          // 利用可能時間
-    q4: "none",           // 利用可能器具
-    q5: "none",           // 制限事項
-    q6: "morning",        // 好みの時間帯
+    q1: "none",           // Exercise habit level
+    q2: "health",         // Training purpose
+    q3: "10-20",          // Available time
+    q4: "none",           // Available equipment
+    q5: "none",           // Limitations
+    q6: "morning",        // Preferred time of day
     createdAt: "2025-11-20T00:00:00.000Z"
   },
   workout_training_plan: {
     id: "plan-xxx",
-    name: "健康づくり基礎プラン",
+    name: "Basic Health Plan",
     description: "...",
     exercises: [...]
   }
@@ -167,33 +167,33 @@ gh-pages -d dist
 }
 ```
 
-## 🔮 今後の予定機能
+## 🔮 Future Features
 
-- [ ] **AI統合**: Gemini APIを使用した本格的なトレーニングプラン生成
-- [ ] **通知機能**: トレーニングリマインダー
-- [ ] **ソーシャル機能**: 友達とストリークを共有
-- [ ] **カスタムエクササイズ**: 独自のエクササイズを追加
-- [ ] **週次・月次レポート**: より詳細な分析とインサイト
-- [ ] **多言語対応**: 英語など他言語のサポート
-- [ ] **PWA化**: オフラインでの完全動作とインストール可能に
+- [ ] **AI Integration**: Full-fledged training plan generation using the Gemini API
+- [ ] **Notifications**: Training reminders
+- [ ] **Social Features**: Share streaks with friends
+- [ ] **Custom Exercises**: Add your own exercises
+- [ ] **Weekly/Monthly Reports**: More detailed analysis and insights
+- [ ] **Multi-language Support**: Support for other languages like English
+- [ ] **PWA Conversion**: Full offline functionality and installability
 
-## 🤖 Gemini API統合
+## 🤖 Gemini API Integration
 
-現在はダミーデータを使用していますが、Gemini APIを統合してAIによるパーソナライズされたトレーニングプランを生成できます。
+Currently, this project uses dummy data, but you can integrate the Gemini API to generate personalized training plans with AI.
 
-### 統合手順
+### Integration Steps
 
-1. Google AI StudioでAPIキーを取得
-2. `.env.local`ファイルを作成:
+1. Get an API key from Google AI Studio.
+2. Create a `.env.local` file:
 
 ```bash
 VITE_GEMINI_API_KEY=your_api_key_here
 ```
 
-3. `src/utils/ai.js`を作成してGemini APIクライアントを実装
-4. `src/utils/questions.js`の`generateDummyTrainingPlan`をAI生成に置き換え
+3. Create `src/utils/ai.js` to implement the Gemini API client.
+4. Replace `generateDummyTrainingPlan` in `src/utils/questions.js` with AI generation.
 
-### サンプル実装
+### Sample Implementation
 
 ```javascript
 // src/utils/ai.js
@@ -205,26 +205,26 @@ export async function generateTrainingPlan(userProfile) {
   const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
   const prompt = `
-あなたはプロのフィットネストレーナーです。
-以下のユーザープロファイルに基づいて、パーソナライズされたトレーニングプランを作成してください：
+You are a professional fitness trainer.
+Please create a personalized training plan based on the following user profile:
 
-運動習慣: ${userProfile.q1}
-目的: ${userProfile.q2}
-利用可能時間: ${userProfile.q3}
-器具: ${userProfile.q4}
-制限: ${userProfile.q5}
-好みの時間帯: ${userProfile.q6}
+Exercise Habit: ${userProfile.q1}
+Goal: ${userProfile.q2}
+Available Time: ${userProfile.q3}
+Equipment: ${userProfile.q4}
+Limitations: ${userProfile.q5}
+Preferred Time of Day: ${userProfile.q6}
 
-JSON形式で以下の構造で返してください：
+Please return the response in JSON format with the following structure:
 {
-  "name": "プラン名",
-  "description": "プランの説明",
+  "name": "Plan Name",
+  "description": "Plan Description",
   "exercises": [
     {
       "id": "ex1",
-      "name": "エクササイズ名",
-      "duration": "回数またはセット数",
-      "description": "詳細な説明",
+      "name": "Exercise Name",
+      "duration": "Reps or sets",
+      "description": "Detailed description",
       "category": "warmup|cardio|upper|lower|core|cooldown"
     }
   ]
@@ -235,7 +235,7 @@ JSON形式で以下の構造で返してください：
   const response = await result.response;
   const text = response.text();
 
-  // JSONをパース
+  // Parse JSON
   const jsonMatch = text.match(/\{[\s\S]*\}/);
   if (jsonMatch) {
     return JSON.parse(jsonMatch[0]);
@@ -245,19 +245,19 @@ JSON形式で以下の構造で返してください：
 }
 ```
 
-## 🧪 テスト
+## 🧪 Testing
 
 ```bash
-# ユニットテスト（実装予定）
+# Unit Tests (To be implemented)
 npm run test
 
-# E2Eテスト（実装予定）
+# E2E Tests (To be implemented)
 npm run test:e2e
 ```
 
-## 🤝 コントリビューション
+## 🤝 Contributing
 
-プルリクエストを歓迎します！大きな変更の場合は、まずissueを開いて変更内容を議論してください。
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
@@ -265,28 +265,28 @@ npm run test:e2e
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📚 ドキュメント
+## 📚 Documentation
 
-- [QUICKSTART.md](QUICKSTART.md) - クイックスタートガイド
-- [DEPLOYMENT.md](DEPLOYMENT.md) - 詳細なデプロイメントガイド
+- [QUICKSTART.md](QUICKSTART.md) - Quick Start Guide
+- [DEPLOYMENT.md](DEPLOYMENT.md) - Detailed Deployment Guide
 
-## 📄 ライセンス
+## 📄 License
 
-このプロジェクトはMITライセンスの下で公開されています。詳細は [LICENSE](LICENSE) ファイルを参照してください。
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## 👤 作成者
+## 👤 Author
 
-あなたの名前
+Your Name
 
 - GitHub: [@yourusername](https://github.com/yourusername)
 
-## 🙏 謝辞
+## 🙏 Acknowledgements
 
-- [Lucide](https://lucide.dev/) - 美しいアイコンセット
-- [Tailwind CSS](https://tailwindcss.com/) - ユーティリティファーストCSSフレームワーク
-- [React](https://react.dev/) - UIライブラリ
-- [Vite](https://vitejs.dev/) - 高速ビルドツール
+- [Lucide](https://lucide.dev/) - Beautiful icon set
+- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework
+- [React](https://react.dev/) - The UI library
+- [Vite](https://vitejs.dev/) - Next generation frontend tooling
 
 ---
 
-⭐️ このプロジェクトが気に入ったらスターをお願いします！
+If you like this project, please give it a star! ⭐

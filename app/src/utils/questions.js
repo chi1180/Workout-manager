@@ -2,141 +2,141 @@
 export const ONBOARDING_QUESTIONS = [
   {
     id: "q1",
-    question: "まずはあなたの今の運動習慣を教えてください！",
+    question: "First, tell us about your current exercise habits!",
     options: [
       {
         value: "none",
-        label: "ほぼ運動してない…これから始めたい！",
+        label: "I barely exercise... but I want to start!",
         emoji: "🌱",
       },
       {
         value: "light",
-        label: "週に1〜2回、少しだけ動いてるよ",
+        label: "I exercise 1-2 times a week, just a little",
         emoji: "🙂",
       },
       {
         value: "regular",
-        label: "週3回以上の運動を続けている！",
+        label: "I exercise 3+ times a week consistently!",
         emoji: "💪",
       },
     ],
   },
   {
     id: "q2",
-    question: "あなたのトレーニングの目的はどれが近い？",
+    question: "What's your main training goal?",
     options: [
       {
         value: "health",
-        label: "まずは健康づくり・体力アップしたい",
+        label: "General health and fitness improvement",
         emoji: "🌿",
       },
       {
         value: "weight",
-        label: "ダイエット・体を引き締めたい",
+        label: "Weight loss and body toning",
         emoji: "🔥",
       },
       {
         value: "muscle",
-        label: "筋力アップを目指したい！",
+        label: "Muscle building and strength gain",
         emoji: "🏋️",
       },
       {
         value: "other",
-        label: "その他の目的があるよ",
+        label: "I have other goals",
         emoji: "✨",
       },
     ],
   },
   {
     id: "q3",
-    question: "1日に使えそうなトレーニング時間はどれくらい？",
+    question: "How much time can you dedicate to training each day?",
     options: [
       {
         value: "5-10",
-        label: "5〜10分くらいならいける！",
+        label: "5-10 minutes works for me!",
         emoji: "⏱️",
       },
       {
         value: "10-20",
-        label: "10〜20分なら大丈夫！",
+        label: "10-20 minutes is doable!",
         emoji: "🙂",
       },
       {
         value: "20-30",
-        label: "20〜30分しっかりできる！",
+        label: "I can do 20-30 minutes!",
         emoji: "💪",
       },
       {
         value: "30plus",
-        label: "30分以上やりたい！",
+        label: "30+ minutes, let's go!",
         emoji: "🔥",
       },
     ],
   },
   {
     id: "q4",
-    question: "使える器具や環境を教えてね！",
+    question: "What equipment do you have access to?",
     options: [
       {
         value: "none",
-        label: "とくに器具なし（自重トレ中心）",
+        label: "No equipment (bodyweight exercises only)",
         emoji: "🙌",
       },
       {
         value: "dumbbell",
-        label: "ダンベルなどの簡単な器具があるよ",
+        label: "I have dumbbells or basic equipment",
         emoji: "🏋️",
       },
       {
         value: "gym",
-        label: "ジムに通えるよ！",
+        label: "I have gym access!",
         emoji: "🏟️",
       },
     ],
   },
   {
     id: "q5",
-    question: "ケガや痛みなど、避けたい動きはある？",
+    question: "Any injuries or movements to avoid?",
     options: [
       {
         value: "none",
-        label: "特にないよ！何でもOK！",
+        label: "No limitations, anything goes!",
         emoji: "👍",
       },
       {
         value: "low-impact",
-        label: "ジャンプなど衝撃の強い動きは避けたい",
+        label: "Avoid high-impact movements like jumping",
         emoji: "🦵",
       },
       {
         value: "upper-limit",
-        label: "腕・肩まわりの負荷は抑えたい",
+        label: "Need to limit upper body exercises",
         emoji: "🤲",
       },
       {
         value: "lower-limit",
-        label: "脚・膝まわりの負荷は抑えたい",
+        label: "Need to limit lower body exercises",
         emoji: "🦶",
       },
     ],
   },
   {
     id: "q6",
-    question: "運動するならどの時間帯が好き？",
+    question: "What time of day do you prefer to exercise?",
     options: [
       {
         value: "morning",
-        label: "朝にスッキリ動きたい！",
+        label: "Morning - start the day fresh!",
         emoji: "🌅",
       },
       {
         value: "day",
-        label: "昼〜夕方が一番やりやすい",
+        label: "Afternoon - easiest for me",
         emoji: "🌤️",
       },
       {
         value: "night",
-        label: "夜にコツコツ続けたい",
+        label: "Evening - consistent routine",
         emoji: "🌙",
       },
     ],
@@ -158,9 +158,9 @@ export const generateDummyTrainingPlan = (userProfile) => {
   // Warm-up (always included)
   exercises.push({
     id: "warmup",
-    name: "ウォーミングアップ",
-    duration: "3分",
-    description: "軽いストレッチと関節の動的準備運動",
+    name: "Warm-up",
+    duration: "3 min",
+    description: "Light stretching and dynamic joint preparation",
     category: "warmup",
   });
 
@@ -170,34 +170,34 @@ export const generateDummyTrainingPlan = (userProfile) => {
     if (!needsLowImpact) {
       exercises.push({
         id: "ex1",
-        name: "スクワット",
-        duration: "10回 × 3セット",
-        description: "基本的な下半身トレーニング。膝がつま先より前に出ないように注意",
+        name: "Squats",
+        duration: "10 reps × 3 sets",
+        description: "Basic lower body training. Keep knees behind toes",
         category: "lower",
       });
     } else {
       exercises.push({
         id: "ex1",
-        name: "ウォールシット",
-        duration: "30秒 × 3セット",
-        description: "壁に背中をつけて座る姿勢をキープ。膝への負担が少ない",
+        name: "Wall Sit",
+        duration: "30 sec × 3 sets",
+        description: "Hold sitting position against wall. Low knee impact",
         category: "lower",
       });
     }
 
     exercises.push({
       id: "ex2",
-      name: "プランク",
-      duration: "20秒 × 3セット",
-      description: "体幹を鍛える基本エクササイズ",
+      name: "Plank",
+      duration: "20 sec × 3 sets",
+      description: "Core strengthening fundamental exercise",
       category: "core",
     });
 
     exercises.push({
       id: "ex3",
-      name: "プッシュアップ（膝つき可）",
-      duration: "8回 × 3セット",
-      description: "上半身の基礎筋力トレーニング",
+      name: "Push-ups (knee variation OK)",
+      duration: "8 reps × 3 sets",
+      description: "Upper body foundation strength training",
       category: "upper",
     });
   } else if (q2 === "weight") {
@@ -205,42 +205,42 @@ export const generateDummyTrainingPlan = (userProfile) => {
     if (!needsLowImpact) {
       exercises.push({
         id: "ex1",
-        name: "バーピー",
-        duration: "10回 × 3セット",
-        description: "全身を使った有酸素運動。脂肪燃焼効果が高い",
+        name: "Burpees",
+        duration: "10 reps × 3 sets",
+        description: "Full-body cardio exercise. High fat-burning effect",
         category: "cardio",
       });
     } else {
       exercises.push({
         id: "ex1",
-        name: "マウンテンクライマー",
-        duration: "20秒 × 3セット",
-        description: "有酸素運動とコア強化を同時に",
+        name: "Mountain Climbers",
+        duration: "20 sec × 3 sets",
+        description: "Cardio and core strengthening combined",
         category: "cardio",
       });
     }
 
     exercises.push({
       id: "ex2",
-      name: "ジャンピングジャック",
-      duration: "30秒 × 3セット",
-      description: "心拍数を上げて脂肪燃焼",
+      name: "Jumping Jacks",
+      duration: "30 sec × 3 sets",
+      description: "Raise heart rate for fat burning",
       category: "cardio",
     });
 
     exercises.push({
       id: "ex3",
-      name: "プランク",
-      duration: "30秒 × 3セット",
-      description: "コアを鍛えて代謝アップ",
+      name: "Plank",
+      duration: "30 sec × 3 sets",
+      description: "Strengthen core for increased metabolism",
       category: "core",
     });
 
     exercises.push({
       id: "ex4",
-      name: "スクワットジャンプ",
-      duration: "10回 × 3セット",
-      description: "下半身と心肺機能を同時に強化",
+      name: "Squat Jumps",
+      duration: "10 reps × 3 sets",
+      description: "Strengthen lower body and cardio simultaneously",
       category: "cardio",
     });
   } else if (q2 === "muscle") {
@@ -248,58 +248,58 @@ export const generateDummyTrainingPlan = (userProfile) => {
     if (hasEquipment) {
       exercises.push({
         id: "ex1",
-        name: "ダンベルスクワット",
-        duration: "12回 × 4セット",
-        description: "ダンベルを持ってスクワット。負荷を高めて筋肥大を促進",
+        name: "Dumbbell Squats",
+        duration: "12 reps × 4 sets",
+        description: "Squats with dumbbells. Increase load for muscle growth",
         category: "lower",
       });
 
       exercises.push({
         id: "ex2",
-        name: "ダンベルベンチプレス",
-        duration: "10回 × 4セット",
-        description: "胸筋を集中的に鍛える",
+        name: "Dumbbell Bench Press",
+        duration: "10 reps × 4 sets",
+        description: "Target chest muscles intensively",
         category: "upper",
       });
 
       exercises.push({
         id: "ex3",
-        name: "ダンベルロウ",
-        duration: "12回 × 4セット",
-        description: "背中の筋肉を強化",
+        name: "Dumbbell Rows",
+        duration: "12 reps × 4 sets",
+        description: "Strengthen back muscles",
         category: "upper",
       });
     } else {
       exercises.push({
         id: "ex1",
-        name: "プッシュアップ",
-        duration: "15回 × 4セット",
-        description: "胸・肩・腕を鍛える基本種目",
+        name: "Push-ups",
+        duration: "15 reps × 4 sets",
+        description: "Train chest, shoulders, and arms - fundamental exercise",
         category: "upper",
       });
 
       exercises.push({
         id: "ex2",
-        name: "ブルガリアンスクワット",
-        duration: "12回 × 3セット（片足ずつ）",
-        description: "片足で行う高負荷スクワット",
+        name: "Bulgarian Split Squats",
+        duration: "12 reps × 3 sets (each leg)",
+        description: "High-load single-leg squats",
         category: "lower",
       });
 
       exercises.push({
         id: "ex3",
-        name: "パイクプッシュアップ",
-        duration: "10回 × 3セット",
-        description: "肩を重点的に鍛える",
+        name: "Pike Push-ups",
+        duration: "10 reps × 3 sets",
+        description: "Focus on shoulder development",
         category: "upper",
       });
     }
 
     exercises.push({
       id: "ex4",
-      name: "プランク",
-      duration: "45秒 × 3セット",
-      description: "コアの安定性を高める",
+      name: "Plank",
+      duration: "45 sec × 3 sets",
+      description: "Improve core stability",
       category: "core",
     });
   }
@@ -307,9 +307,9 @@ export const generateDummyTrainingPlan = (userProfile) => {
   // Cool down (always included)
   exercises.push({
     id: "cooldown",
-    name: "クールダウン",
-    duration: "3分",
-    description: "ストレッチで筋肉をほぐし、疲労回復を促進",
+    name: "Cool Down",
+    duration: "3 min",
+    description: "Stretch muscles and promote recovery",
     category: "cooldown",
   });
 
@@ -325,30 +325,31 @@ export const generateDummyTrainingPlan = (userProfile) => {
 
 const generatePlanName = (goal) => {
   const names = {
-    health: "健康づくり基礎プラン",
-    weight: "脂肪燃焼エクササイズ",
-    muscle: "筋力アップトレーニング",
-    other: "カスタムトレーニングプラン",
+    health: "Health & Fitness Foundation Plan",
+    weight: "Fat Burning Exercise Program",
+    muscle: "Strength Building Training",
+    other: "Custom Training Plan",
   };
-  return names[goal] || "パーソナライズドプラン";
+  return names[goal] || "Personalized Plan";
 };
 
 const generatePlanDescription = (goal, time) => {
   const timeMap = {
-    "5-10": "短時間",
-    "10-20": "効率的な",
-    "20-30": "しっかり",
-    "30plus": "本格的な",
+    "5-10": "Quick",
+    "10-20": "Efficient",
+    "20-30": "Thorough",
+    "30plus": "Comprehensive",
   };
 
   const timeText = timeMap[time] || "";
 
   const goalMap = {
-    health: "健康的な体づくりと基礎体力の向上を目指す",
-    weight: "脂肪燃焼と引き締まった体づくりを目指す",
-    muscle: "筋力アップと筋肥大を目指す",
-    other: "あなたの目標達成をサポートする",
+    health:
+      "program aimed at healthy body building and basic fitness improvement",
+    weight: "program aimed at fat burning and body toning",
+    muscle: "program aimed at strength building and muscle growth",
+    other: "program to support your goal achievement",
   };
 
-  return `${timeText}${goalMap[goal] || ""}プログラムです。継続することで着実に結果が出ます！`;
+  return `${timeText} ${goalMap[goal] || ""}. Consistent practice yields steady results!`;
 };

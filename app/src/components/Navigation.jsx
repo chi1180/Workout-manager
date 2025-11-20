@@ -20,17 +20,17 @@ export default function Navigation() {
   const navItems = [
     {
       path: "/dashboard",
-      label: "ホーム",
+      label: "Home",
       icon: Home,
     },
     {
       path: "/history",
-      label: "履歴",
+      label: "History",
       icon: History,
     },
     {
       path: "/settings",
-      label: "設定",
+      label: "Settings",
       icon: Settings,
     },
   ];

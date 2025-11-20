@@ -70,10 +70,10 @@ export default function Settings() {
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
 
-      showSuccessMessage("データをエクスポートしました");
+      showSuccessMessage("Data exported successfully");
     } catch (error) {
       console.error("Export error:", error);
-      alert("エクスポートに失敗しました");
+      alert("Failed to export data");
     }
   };
 
@@ -92,7 +92,7 @@ export default function Settings() {
       storage.importData(data.localStorage);
       await activityDB.importData(data.activities);
 
-      showSuccessMessage("データをインポートしました");
+      showSuccessMessage("Data imported successfully");
 
       setTimeout(() => {
         loadSettings();
@@ -100,7 +100,7 @@ export default function Settings() {
       }, 1500);
     } catch (error) {
       console.error("Import error:", error);
-      alert("インポートに失敗しました。ファイル形式を確認してください。");
+      alert("Failed to import data. Please check the file format.");
     }
 
     event.target.value = "";
@@ -116,14 +116,14 @@ export default function Settings() {
       storage.clearAll();
       await activityDB.clearAll();
 
-      showSuccessMessage("すべてのデータをリセットしました");
+      showSuccessMessage("All data has been reset");
 
       setTimeout(() => {
         router.navigate("/onboarding");
       }, 1500);
     } catch (error) {
       console.error("Reset error:", error);
-      alert("リセットに失敗しました");
+      alert("Failed to reset data");
     }
 
     setShowResetConfirm(false);
@@ -138,37 +138,37 @@ export default function Settings() {
   const getAnswerLabel = (questionId, value) => {
     const labels = {
       q1: {
-        none: "初心者",
-        light: "軽く運動",
-        regular: "定期的に運動",
+        none: "Beginner",
+        light: "Light exercise",
+        regular: "Regular exercise",
       },
       q2: {
-        health: "健康づくり",
-        weight: "ダイエット",
-        muscle: "筋力アップ",
-        other: "その他",
+        health: "Health improvement",
+        weight: "Weight loss",
+        muscle: "Muscle gain",
+        other: "Other",
       },
       q3: {
-        "5-10": "5〜10分",
-        "10-20": "10〜20分",
-        "20-30": "20〜30分",
-        "30plus": "30分以上",
+        "5-10": "5-10 minutes",
+        "10-20": "10-20 minutes",
+        "20-30": "20-30 minutes",
+        "30plus": "30+ minutes",
       },
       q4: {
-        none: "器具なし",
-        dumbbell: "ダンベル等",
-        gym: "ジム",
+        none: "No equipment",
+        dumbbell: "Dumbbells, etc.",
+        gym: "Gym",
       },
       q5: {
-        none: "制限なし",
-        "low-impact": "低衝撃",
-        "upper-limit": "上半身制限",
-        "lower-limit": "下半身制限",
+        none: "No limitations",
+        "low-impact": "Low impact",
+        "upper-limit": "Upper body limitations",
+        "lower-limit": "Lower body limitations",
       },
       q6: {
-        morning: "朝",
-        day: "昼〜夕方",
-        night: "夜",
+        morning: "Morning",
+        day: "Day-Evening",
+        night: "Night",
       },
     };
 
@@ -182,10 +182,10 @@ export default function Settings() {
         <div className="max-w-4xl mx-auto px-6 py-6">
           <h1 className="text-2xl font-semibold text-notion-text dark:text-notion-text-dark mb-1 flex items-center gap-2">
             <SettingsIcon className="w-6 h-6" />
-            設定
+            Settings
           </h1>
           <p className="text-notion-text-secondary dark:text-notion-text-secondary-dark text-sm">
-            アプリの設定とデータ管理
+            App settings and data management
           </p>
         </div>
       </div>
@@ -196,13 +196,13 @@ export default function Settings() {
           <div className="notion-card-flat">
             <h2 className="text-sm font-semibold text-notion-text dark:text-notion-text-dark mb-4 flex items-center gap-2">
               <User className="w-4 h-4" />
-              プロファイル
+              Profile
             </h2>
 
             <div className="space-y-2 mb-4">
               <div className="flex justify-between items-center p-3 bg-notion-bg-secondary dark:bg-notion-hover-dark rounded-lg">
                 <span className="text-sm text-notion-text-secondary dark:text-notion-text-secondary-dark">
-                  運動習慣
+                  Exercise Habit
                 </span>
                 <span className="text-sm font-medium text-notion-text dark:text-notion-text-dark">
                   {getAnswerLabel("q1", userProfile.q1)}
@@ -210,7 +210,7 @@ export default function Settings() {
               </div>
               <div className="flex justify-between items-center p-3 bg-notion-bg-secondary dark:bg-notion-hover-dark rounded-lg">
                 <span className="text-sm text-notion-text-secondary dark:text-notion-text-secondary-dark">
-                  目的
+                  Goal
                 </span>
                 <span className="text-sm font-medium text-notion-text dark:text-notion-text-dark">
                   {getAnswerLabel("q2", userProfile.q2)}
@@ -218,7 +218,7 @@ export default function Settings() {
               </div>
               <div className="flex justify-between items-center p-3 bg-notion-bg-secondary dark:bg-notion-hover-dark rounded-lg">
                 <span className="text-sm text-notion-text-secondary dark:text-notion-text-secondary-dark">
-                  トレーニング時間
+                  Training Time
                 </span>
                 <span className="text-sm font-medium text-notion-text dark:text-notion-text-dark">
                   {getAnswerLabel("q3", userProfile.q3)}
@@ -226,7 +226,7 @@ export default function Settings() {
               </div>
               <div className="flex justify-between items-center p-3 bg-notion-bg-secondary dark:bg-notion-hover-dark rounded-lg">
                 <span className="text-sm text-notion-text-secondary dark:text-notion-text-secondary-dark">
-                  器具
+                  Equipment
                 </span>
                 <span className="text-sm font-medium text-notion-text dark:text-notion-text-dark">
                   {getAnswerLabel("q4", userProfile.q4)}
@@ -234,7 +234,7 @@ export default function Settings() {
               </div>
               <div className="flex justify-between items-center p-3 bg-notion-bg-secondary dark:bg-notion-hover-dark rounded-lg">
                 <span className="text-sm text-notion-text-secondary dark:text-notion-text-secondary-dark">
-                  制限
+                  Limitations
                 </span>
                 <span className="text-sm font-medium text-notion-text dark:text-notion-text-dark">
                   {getAnswerLabel("q5", userProfile.q5)}
@@ -242,7 +242,7 @@ export default function Settings() {
               </div>
               <div className="flex justify-between items-center p-3 bg-notion-bg-secondary dark:bg-notion-hover-dark rounded-lg">
                 <span className="text-sm text-notion-text-secondary dark:text-notion-text-secondary-dark">
-                  好みの時間帯
+                  Preferred Time
                 </span>
                 <span className="text-sm font-medium text-notion-text dark:text-notion-text-dark">
                   {getAnswerLabel("q6", userProfile.q6)}
@@ -255,7 +255,7 @@ export default function Settings() {
               className="btn-secondary w-full flex items-center justify-center gap-2"
             >
               <RefreshCw className="w-4 h-4" />
-              プロファイルを再設定
+              Reconfigure Profile
             </button>
           </div>
         )}
@@ -263,7 +263,7 @@ export default function Settings() {
         {/* Appearance */}
         <div className="notion-card-flat">
           <h2 className="text-sm font-semibold text-notion-text dark:text-notion-text-dark mb-4">
-            外観
+            Appearance
           </h2>
 
           <button
@@ -280,10 +280,10 @@ export default function Settings() {
               </div>
               <div className="text-left">
                 <div className="text-sm font-medium text-notion-text dark:text-notion-text-dark">
-                  ダークモード
+                  Dark Mode
                 </div>
                 <div className="text-xs text-notion-text-secondary dark:text-notion-text-secondary-dark">
-                  {darkMode ? "オン" : "オフ"}
+                  {darkMode ? "On" : "Off"}
                 </div>
               </div>
             </div>
@@ -306,7 +306,7 @@ export default function Settings() {
         {/* Data Management */}
         <div className="notion-card-flat">
           <h2 className="text-sm font-semibold text-notion-text dark:text-notion-text-dark mb-4">
-            データ管理
+            Data Management
           </h2>
 
           <div className="space-y-2">
@@ -320,10 +320,10 @@ export default function Settings() {
                 </div>
                 <div className="text-left">
                   <div className="text-sm font-medium text-notion-text dark:text-notion-text-dark">
-                    データをエクスポート
+                    Export Data
                   </div>
                   <div className="text-xs text-notion-text-secondary dark:text-notion-text-secondary-dark">
-                    バックアップファイルをダウンロード
+                    Download backup file
                   </div>
                 </div>
               </div>
@@ -336,10 +336,10 @@ export default function Settings() {
                 </div>
                 <div className="text-left">
                   <div className="text-sm font-medium text-notion-text dark:text-notion-text-dark">
-                    データをインポート
+                    Import Data
                   </div>
                   <div className="text-xs text-notion-text-secondary dark:text-notion-text-secondary-dark">
-                    バックアップファイルから復元
+                    Restore from backup file
                   </div>
                 </div>
               </div>
@@ -361,10 +361,10 @@ export default function Settings() {
                 </div>
                 <div className="text-left">
                   <div className="text-sm font-medium text-notion-red">
-                    すべてのデータをリセット
+                    Reset All Data
                   </div>
                   <div className="text-xs text-notion-red/70">
-                    全ての設定と履歴を削除
+                    Delete all settings and history
                   </div>
                 </div>
               </div>
@@ -380,7 +380,7 @@ export default function Settings() {
             </div>
             <div>
               <h2 className="text-sm font-semibold text-notion-text dark:text-notion-text-dark">
-                ワークアウトマネージャー
+                Workout Manager
               </h2>
               <p className="text-xs text-notion-text-secondary dark:text-notion-text-secondary-dark">
                 Version 1.0.0
@@ -388,7 +388,7 @@ export default function Settings() {
             </div>
           </div>
           <p className="text-xs text-notion-text-secondary dark:text-notion-text-secondary-dark">
-            健康的な運動習慣を継続するためのアプリケーション
+            An application to maintain healthy exercise habits
           </p>
         </div>
       </div>
@@ -402,10 +402,11 @@ export default function Settings() {
                 <Trash2 className="w-6 h-6 text-notion-red" />
               </div>
               <h3 className="text-xl font-semibold text-notion-text dark:text-notion-text-dark mb-2">
-                本当にリセットしますか？
+                Are you sure you want to reset?
               </h3>
               <p className="text-sm text-notion-text-secondary dark:text-notion-text-secondary-dark">
-                この操作は取り消せません。すべてのプロファイル、トレーニング履歴、設定が削除されます。
+                This action cannot be undone. All profiles, training history,
+                and settings will be deleted.
               </p>
             </div>
 
@@ -414,13 +415,13 @@ export default function Settings() {
                 onClick={() => setShowResetConfirm(false)}
                 className="btn-secondary flex-1"
               >
-                キャンセル
+                Cancel
               </button>
               <button
                 onClick={handleResetAllData}
                 className="flex-1 bg-notion-red hover:bg-notion-red/90 text-white font-medium py-2.5 px-4 rounded-lg transition-all duration-200"
               >
-                削除する
+                Delete
               </button>
             </div>
           </div>

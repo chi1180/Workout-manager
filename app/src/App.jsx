@@ -60,7 +60,7 @@ function App() {
         <div className="text-center">
           <div className="inline-block w-8 h-8 border-2 border-notion-blue border-t-transparent rounded-full animate-spin mb-3" />
           <p className="text-notion-text-secondary dark:text-notion-text-secondary-dark text-sm">
-            初期化中...
+            Initializing...
           </p>
         </div>
       </div>

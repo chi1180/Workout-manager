@@ -1,7 +1,7 @@
 {
   "name": "workout-manager",
   "version": "1.0.0",
-  "description": "健康的な運動習慣を継続するためのWebアプリケーション",
+  "description": "A web application to maintain healthy exercise habits",
   "scripts": {
     "dev": "cd app && npm run dev",
     "build": "cd app && npm run build",

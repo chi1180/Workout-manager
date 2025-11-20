@@ -89,7 +89,9 @@ export default function Dashboard() {
 
       weekDays.push({
         date: dateStr,
-        dayName: ["日", "月", "火", "水", "木", "金", "土"][date.getDay()],
+        dayName: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][
+          date.getDay()
+        ],
         completed: activity?.allCompleted || false,
         isToday: dateStr === todayString,
       });
@@ -136,7 +138,7 @@ export default function Dashboard() {
         <div className="text-center">
           <div className="inline-block w-8 h-8 border-2 border-notion-blue border-t-transparent rounded-full animate-spin mb-3" />
           <p className="text-notion-text-secondary dark:text-notion-text-secondary-dark text-sm">
-            読み込み中...
+            Loading...
           </p>
         </div>
       </div>
@@ -151,16 +153,16 @@ export default function Dashboard() {
             <Sparkles className="w-8 h-8 text-notion-blue" />
           </div>
           <h2 className="text-xl font-semibold text-notion-text dark:text-notion-text-dark mb-2">
-            トレーニングプランがありません
+            No Training Plan
           </h2>
           <p className="text-notion-text-secondary dark:text-notion-text-secondary-dark text-sm mb-6">
-            まずはセットアップを完了してください
+            Please complete the setup first
           </p>
           <button
             onClick={() => router.navigate("/onboarding")}
             className="btn-primary"
           >
-            始める
+            Get Started
           </button>
         </div>
       </div>
@@ -180,10 +182,10 @@ export default function Dashboard() {
           <div className="flex items-start justify-between mb-4">
             <div>
               <h1 className="text-2xl font-semibold text-notion-text dark:text-notion-text-dark mb-1">
-                今日のワークアウト
+                Today's Workout
               </h1>
               <p className="text-notion-text-secondary dark:text-notion-text-secondary-dark text-sm">
-                {new Date().toLocaleDateString("ja-JP", {
+                {new Date().toLocaleDateString("en-US", {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
@@ -195,7 +197,7 @@ export default function Dashboard() {
               <div className="flex items-center gap-2 px-3 py-1.5 bg-notion-yellow-bg dark:bg-notion-yellow-bg-dark rounded-lg">
                 <Flame className="w-4 h-4 text-notion-yellow" />
                 <span className="text-sm font-semibold text-notion-yellow">
-                  {streak}日連続
+                  {streak} day streak
                 </span>
               </div>
             )}
@@ -205,7 +207,7 @@ export default function Dashboard() {
           <div className="notion-card-flat">
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm font-medium text-notion-text dark:text-notion-text-dark">
-                進捗状況
+                Progress
               </span>
               <span className="text-sm text-notion-text-secondary dark:text-notion-text-secondary-dark">
                 {completedCount} / {totalExercises}
@@ -249,10 +251,10 @@ export default function Dashboard() {
               </div>
               <div className="flex-1 min-w-0">
                 <h3 className="font-semibold text-notion-green mb-0.5">
-                  素晴らしい！今日のトレーニング完了！
+                  Amazing! Today's Training Complete!
                 </h3>
                 <p className="text-sm text-notion-green/80">
-                  継続は力なり。明日も頑張りましょう！
+                  Consistency is key. Keep it up tomorrow!
                 </p>
               </div>
             </div>
@@ -263,7 +265,7 @@ export default function Dashboard() {
         <div className="space-y-3">
           <h3 className="text-sm font-semibold text-notion-text-secondary dark:text-notion-text-secondary-dark uppercase tracking-wide flex items-center gap-2">
             <Calendar className="w-4 h-4" />
-            今日のエクササイズ
+            Today's Exercises
           </h3>
 
           <div className="space-y-2">
@@ -327,7 +329,7 @@ export default function Dashboard() {
         {/* Week Progress */}
         <div className="notion-card-flat">
           <h3 className="text-sm font-semibold text-notion-text dark:text-notion-text-dark mb-4">
-            週間進捗
+            Weekly Progress
           </h3>
           <div className="flex gap-2">
             {weekProgress.map((day) => (
@@ -362,15 +364,15 @@ export default function Dashboard() {
           <div className="notion-card max-w-md w-full text-center animate-scale-in">
             <div className="text-6xl mb-4">🎉</div>
             <h3 className="text-2xl font-semibold text-notion-text dark:text-notion-text-dark mb-2">
-              おめでとうございます！
+              Congratulations!
             </h3>
             <p className="text-notion-text-secondary dark:text-notion-text-secondary-dark mb-4">
-              今日のトレーニングを完了しました！
+              You've completed today's training!
             </p>
             <div className="inline-flex items-center gap-2 bg-notion-yellow-bg dark:bg-notion-yellow-bg-dark px-6 py-3 rounded-lg">
               <Flame className="w-5 h-5 text-notion-yellow" />
               <span className="font-semibold text-notion-yellow">
-                {streak}日連続
+                {streak} day streak
               </span>
             </div>
           </div>

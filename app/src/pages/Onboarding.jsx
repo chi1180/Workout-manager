@@ -92,7 +92,7 @@ export default function Onboarding() {
         <div className="max-w-3xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between mb-3">
             <h1 className="text-lg font-semibold text-notion-text dark:text-notion-text-dark">
-              セットアップ
+              Setup
             </h1>
             <div className="text-sm text-notion-text-secondary dark:text-notion-text-secondary-dark font-medium">
               {currentQuestion + 1} / {totalQuestions}
@@ -127,7 +127,7 @@ export default function Onboarding() {
                 {question.question}
               </h2>
               <p className="text-notion-text-secondary dark:text-notion-text-secondary-dark">
-                あなたに最適なトレーニングプランを作成するために教えてください
+                Help us create the perfect training plan for you
               </p>
             </div>
 
@@ -178,7 +178,7 @@ export default function Onboarding() {
               className="btn-secondary flex items-center gap-2"
             >
               <ChevronLeft className="w-4 h-4" />
-              戻る
+              Back
             </button>
           ) : (
             <div className="flex-shrink-0 w-20" />
@@ -191,12 +191,12 @@ export default function Onboarding() {
           >
             {currentQuestion === totalQuestions - 1 ? (
               <>
-                完了
+                Complete
                 <Sparkles className="w-4 h-4" />
               </>
             ) : (
               <>
-                次へ
+                Next
                 <ChevronRight className="w-4 h-4" />
               </>
             )}
@@ -213,10 +213,10 @@ export default function Onboarding() {
                 <Sparkles className="w-8 h-8 text-notion-blue animate-pulse" />
               </div>
               <h3 className="text-xl font-semibold text-notion-text dark:text-notion-text-dark mb-2">
-                プランを作成中...
+                Creating Your Plan...
               </h3>
               <p className="text-notion-text-secondary dark:text-notion-text-secondary-dark text-sm">
-                あなたの回答を分析して、最適なトレーニングプランを生成しています
+                Analyzing your answers to generate the optimal training plan
               </p>
             </div>
             <div className="flex items-center justify-center gap-1.5">

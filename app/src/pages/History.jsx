@@ -169,7 +169,7 @@ export default function History() {
         <div className="text-center">
           <div className="inline-block w-8 h-8 border-2 border-notion-blue border-t-transparent rounded-full animate-spin mb-3" />
           <p className="text-notion-text-secondary dark:text-notion-text-secondary-dark text-sm">
-            読み込み中...
+            Loading...
           </p>
         </div>
       </div>
@@ -182,10 +182,10 @@ export default function History() {
       <div className="bg-notion-bg dark:bg-notion-bg-secondary-dark border-b border-notion-border dark:border-notion-border-dark">
         <div className="max-w-6xl mx-auto px-6 py-6">
           <h1 className="text-2xl font-semibold text-notion-text dark:text-notion-text-dark mb-1">
-            履歴
+            History
           </h1>
           <p className="text-notion-text-secondary dark:text-notion-text-secondary-dark text-sm">
-            あなたの頑張りを振り返りましょう
+            Review your progress and achievements
           </p>
         </div>
       </div>
@@ -201,7 +201,7 @@ export default function History() {
               {stats.totalDays}
             </div>
             <div className="text-xs text-notion-text-secondary dark:text-notion-text-secondary-dark">
-              総トレーニング日数
+              Total Training Days
             </div>
           </div>
 
@@ -213,7 +213,7 @@ export default function History() {
               {stats.currentStreak}
             </div>
             <div className="text-xs text-notion-text-secondary dark:text-notion-text-secondary-dark">
-              現在の連続日数
+              Current Streak
             </div>
           </div>
 
@@ -225,7 +225,7 @@ export default function History() {
               {stats.longestStreak}
             </div>
             <div className="text-xs text-notion-text-secondary dark:text-notion-text-secondary-dark">
-              最長連続記録
+              Longest Streak
             </div>
           </div>
 
@@ -237,7 +237,7 @@ export default function History() {
               {stats.completionRate}%
             </div>
             <div className="text-xs text-notion-text-secondary dark:text-notion-text-secondary-dark">
-              達成率（30日間）
+              Completion Rate (30 days)
             </div>
           </div>
         </div>
@@ -246,7 +246,7 @@ export default function History() {
         <div className="notion-card-flat">
           <h2 className="text-sm font-semibold text-notion-text dark:text-notion-text-dark mb-4 flex items-center gap-2">
             <Calendar className="w-4 h-4" />
-            年間アクティビティ
+            Annual Activity
           </h2>
 
           <div className="overflow-x-auto">
@@ -257,7 +257,7 @@ export default function History() {
                   const weekDate = new Date();
                   weekDate.setDate(weekDate.getDate() - 364 + weekIdx * 7);
                   const isFirstWeekOfMonth = weekDate.getDate() <= 7;
-                  const monthName = weekDate.toLocaleDateString("ja-JP", {
+                  const monthName = weekDate.toLocaleDateString("en-US", {
                     month: "short",
                   });
                   return isFirstWeekOfMonth ? (
@@ -278,11 +278,11 @@ export default function History() {
               <div className="flex gap-0.5">
                 {/* Day of week labels */}
                 <div className="flex flex-col gap-0.5 text-xs text-notion-text-secondary dark:text-notion-text-secondary-dark justify-around pr-1">
-                  <div className="h-3">月</div>
+                  <div className="h-3">Mon</div>
                   <div className="h-3"></div>
-                  <div className="h-3">水</div>
+                  <div className="h-3">Wed</div>
                   <div className="h-3"></div>
-                  <div className="h-3">金</div>
+                  <div className="h-3">Fri</div>
                   <div className="h-3"></div>
                   <div className="h-3"></div>
                 </div>
@@ -302,7 +302,7 @@ export default function History() {
                                   getIntensityClass(day.completed)
                                 : getIntensityClass(day.completed)
                           }`}
-                          title={`${day.date}: ${day.completed ? "完了" : "未完了"}`}
+                          title={`${day.date}: ${day.completed ? "Completed" : "Not completed"}`}
                         />
                       ))}
                     </div>
@@ -312,15 +312,16 @@ export default function History() {
 
               {/* Legend */}
               <div className="flex items-center gap-2 mt-4 text-xs text-notion-text-secondary dark:text-notion-text-secondary-dark">
-                <span>少ない</span>
+                <span>Less</span>
                 <div className="flex gap-1">
                   <div className="w-3 h-3 bg-notion-border dark:bg-notion-border-dark rounded-sm" />
                   <div className="w-3 h-3 bg-notion-green/30 rounded-sm" />
                   <div className="w-3 h-3 bg-notion-green/60 rounded-sm" />
                   <div className="w-3 h-3 bg-notion-green rounded-sm" />
                 </div>
-                <span>多い</span>
+                <span>More</span>
               </div>
+</system_warning>
             </div>
           </div>
         </div>
@@ -330,7 +331,7 @@ export default function History() {
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-sm font-semibold text-notion-text dark:text-notion-text-dark flex items-center gap-2">
               <Award className="w-4 h-4" />
-              月別詳細
+              Monthly Details
             </h2>
             <div className="flex gap-2">
               <div className="relative">
@@ -341,7 +342,9 @@ export default function History() {
                 >
                   {Array.from({ length: 12 }, (_, i) => (
                     <option key={i} value={i}>
-                      {i + 1}月
+                      {new Date(2000, i, 1).toLocaleDateString("en-US", {
+                        month: "long",
+                      })}
                     </option>
                   ))}
                 </select>
@@ -357,7 +360,7 @@ export default function History() {
                     const year = new Date().getFullYear() - i;
                     return (
                       <option key={year} value={year}>
-                        {year}年
+                        {year}
                       </option>
                     );
                   })}
@@ -373,17 +376,17 @@ export default function History() {
                 <Calendar className="w-6 h-6 text-notion-text-secondary dark:text-notion-text-secondary-dark" />
               </div>
               <p className="text-notion-text-secondary dark:text-notion-text-secondary-dark text-sm">
-                この月のトレーニング記録はありません
+                No training records for this month
               </p>
             </div>
           ) : (
             <div>
               <div className="mb-4 p-4 bg-notion-green-bg dark:bg-notion-green-bg-dark rounded-lg">
                 <div className="text-2xl font-semibold text-notion-green mb-0.5">
-                  {monthlyActivities.length}日
+                  {monthlyActivities.length} days
                 </div>
                 <div className="text-sm text-notion-green/80">
-                  トレーニングを完了しました！
+                  Training completed!
                 </div>
               </div>
 
@@ -404,18 +407,18 @@ export default function History() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="font-medium text-notion-text dark:text-notion-text-dark text-sm">
-                          {date.toLocaleDateString("ja-JP", {
+                          {date.toLocaleDateString("en-US", {
                             month: "long",
                             day: "numeric",
                             weekday: "short",
                           })}
                         </div>
                         <div className="text-xs text-notion-text-secondary dark:text-notion-text-secondary-dark">
-                          {completedCount} / {totalCount} エクササイズ完了
+                          {completedCount} / {totalCount} exercises completed
                         </div>
                       </div>
                       <div className="flex-shrink-0 text-xs font-medium text-notion-green px-2 py-1 bg-notion-green-bg dark:bg-notion-green-bg-dark rounded">
-                        完了
+                        Completed
                       </div>
                     </div>
                   );
